@@ -21,7 +21,7 @@ length = 9
 width = 8
 area = length * width
 puts "面積は#{area}です。" #シングルクォーテーションで囲むと式展開が行われない
-=end
+
 
 #eachメソッド
 langages = ["日本語","英語","スペイン語"]
@@ -29,6 +29,34 @@ langages.each do |langage|          #オブジェクトに含まれる要素を�
   puts "#{langage}を話せます"        #putsはpに省略可
 end
 
+#ハッシュの場合
 {ruby:"rails", php:"Cakephp", python:"Django"}.each do |k, v|
     p "#{k}はkey、#{v}はvalue"
+end
+
+
+
+#1行の標準入力
+p '文字を入力してください'
+input = gets    #変数=gets (getsは1行のみ)
+p input.chomp!  #chomp!メソッドで改行文字を取り除ける
+
+
+p '文字を入力してください'
+input = $stdin.gets    #getsのレシーバとして$stdinを指定
+p input.chomp!  
+
+
+#繰り返し処理
+5.times do |n|   #nは数値
+    p n
+end
+
+=end
+
+require 'io/console'
+
+i = 0
+while (key = STDIN.getch) != "\C-c"
+  puts " #{i += 1}: #{key.inspect} キーが押されました。"
 end
